@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DataAccessLayer.Abstract
 {
     //Generic interface'den miras alarak onun içinde bulunduğu tüm değerleri kullanabilir
-    public interface ICategoryDal:IGenericDal<Category>
+    public interface ICategoryDal : IGenericDal<Category>
     {
     }
 }

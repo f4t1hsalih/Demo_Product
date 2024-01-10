@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete
 {
-    public class Context:DbContext
+    public class Context : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-9D1JVJE\\SQLEXPRESS;database=DbNewOopCore1;integrated security=true; encrypt=false");
+            optionsBuilder.UseSqlServer("server=DESKTOP-9D1JVJE\\SQLEXPRESS; database=DbNewOopCore1; integrated security=true; encrypt=false");
         }
 
         public DbSet<Product> Products { get; set; }

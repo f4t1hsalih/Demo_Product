@@ -3,8 +3,10 @@ using DataAccessLayer.Concrete;
 
 namespace DataAccessLayer.Repositories
 {
+    //Generic Interface üzerinden Generic Repository'de tek seferde tüm entity'ler için CRUD işlemlerini yapıyoruz
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
+        //T sınından gelen gelen değeri siler
         public void Delete(T t)
         {
             using var c = new Context();
