@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ICustomerDal
+    //Generic interface'den miras alarak onun içinde bulunduğu tüm değerleri kullanabilir
+    public interface ICustomerDal:IGenericDal<Customer>
     {
-        void Insert(Customer p);
-        void Update(Customer p);
-        void Delete(Customer p);
-        List<Customer> GetList();
     }
 }

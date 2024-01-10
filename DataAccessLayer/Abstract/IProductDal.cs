@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface IProductDal
+    //Generic interface'den miras alarak onun içinde bulunduğu tüm değerleri kullanabilir
+    public interface IProductDal:IGenericDal<Product>
     {
-        void Insert(Product p);
-        void Update(Product p);
-        void Delete(Product p);
-        List<Product> GetList();
     }
 }
