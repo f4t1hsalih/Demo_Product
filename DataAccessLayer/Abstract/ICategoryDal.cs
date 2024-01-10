@@ -9,9 +9,9 @@ namespace DataAccessLayer.Abstract
 {
     public interface ICategoryDal
     {
-        void Insert(Category c);
-        void Update(Category c);
-        void Delete(Category c);
+        void Insert(Category p);
+        void Update(Category p);
+        void Delete(Category p);
         List<Category> GetList();
     }
 }

@@ -9,9 +9,9 @@ namespace DataAccessLayer.Abstract
 {
     public interface ICustomerDal
     {
-        void Insert(Customer c);
-        void Update(Customer c);
-        void Delete(Customer c);
+        void Insert(Customer p);
+        void Update(Customer p);
+        void Delete(Customer p);
         List<Customer> GetList();
     }
 }
