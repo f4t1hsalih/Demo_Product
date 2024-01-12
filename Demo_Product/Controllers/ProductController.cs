@@ -15,11 +15,13 @@ namespace Demo_Product.Controllers
             var values = productManager.TGetList();
             return View(values);
         }
+
         [HttpGet]
         public IActionResult AddProduct()
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult AddProduct(Product p)
         {
@@ -27,8 +29,8 @@ namespace Demo_Product.Controllers
             ValidationResult result = validationRules.Validate(p);
             if (result.IsValid)
             {
-            productManager.TInsert(p);
-            return RedirectToAction("Index");
+                productManager.TInsert(p);
+                return RedirectToAction("Index");
             }
             else
             {
@@ -38,6 +40,13 @@ namespace Demo_Product.Controllers
                 }
             }
             return View();
+        }
+
+        public IActionResult DeleteProduct(int id)
+        {
+            var value = productManager.TGetByID(id);
+            productManager.TDelete(value);
+            return RedirectToAction("Index");
         }
     }
 }

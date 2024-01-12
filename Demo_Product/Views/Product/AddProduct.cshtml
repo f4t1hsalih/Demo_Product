@@ -8,8 +8,8 @@
 
 <form method="post">
     @Html.Label("Ürün Adı:")
-    @Html.TextBoxFor(x=>x.Name, new {@class="form-control"})
-    @Html.ValidationMessageFor(x=>x.Name)
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Name)
     <br />
     @Html.Label("Ürün Fiyatı:")
     @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
