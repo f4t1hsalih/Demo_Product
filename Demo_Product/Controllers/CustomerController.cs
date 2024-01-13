@@ -11,6 +11,8 @@ namespace Demo_Product.Controllers
     public class CustomerController : Controller
     {
         CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
+        JobManager jobManager = new JobManager(new EfJobDal());
+
         public IActionResult Index()
         {
             var values = customerManager.GetCustomersListWithJob();
@@ -21,7 +23,6 @@ namespace Demo_Product.Controllers
         public IActionResult AddCustomer()
         {
             //Dropdownlist i kullanabilmek için dropdownlist e gelmesi gereken değerler atanıyor
-            JobManager jobManager = new JobManager(new EfJobDal());
             List<SelectListItem> values = (from x in jobManager.TGetList()
                                            select new SelectListItem
                                            {
@@ -61,6 +62,14 @@ namespace Demo_Product.Controllers
         [HttpGet]
         public IActionResult UpdateCustomer(int id)
         {
+            //Dropdownlist i kullanabilmek için dropdownlist e gelmesi gereken değerler atanıyor
+            List<SelectListItem> values = (from x in jobManager.TGetList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.Name,
+                                               Value = x.JobID.ToString()
+                                           }).ToList();
+            ViewBag.v = values;
             var value = customerManager.TGetByID(id);
             return View(value);
         }

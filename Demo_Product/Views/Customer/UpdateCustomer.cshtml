@@ -19,5 +19,8 @@
     @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
     @Html.ValidationMessageFor(x => x.City)
     <br />
+    @Html.Label("Müşteri Mesleği:")
+    @Html.DropDownListFor(x => x.JobID, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+    <br />
     <button class="btn btn-info">Müşteri Güncelle</button>
 </form>
