@@ -4,11 +4,11 @@
     Layout = "~/Views/Shared/_UILayout.cshtml";
 }
 
-<h1>Ürün Güncelleme</h1>
+<h1 class="mt-4">Ürün Güncelleme</h1>
 
 <form method="post">
     @Html.Label("Ürün ID:")
-    @Html.TextBoxFor(x=>x.ID, new {@class="form-control"})
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
     <br />
     @Html.Label("Ürün Adı:")
     @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })

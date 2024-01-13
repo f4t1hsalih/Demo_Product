@@ -4,6 +4,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UILayout.cshtml";
 }
+
 <h1 class="mt-4">Ürün Listesi</h1>
 <table class="table table-bordered">
     <tr>
@@ -24,7 +25,6 @@
             <td><a href="/Product/UpdateProduct/@item.ID" class="btn btn-success">Güncelle</a></td>
             <td><a href="/Product/DeleteProduct/@item.ID" class="btn btn-outline-danger">Sil</a></td>
         </tr>
-
     }
 </table>
 
