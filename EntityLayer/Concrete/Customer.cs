@@ -8,6 +8,6 @@
 
         //İlişki kurmak için gerekli olan kodlar
         public int JobID { get; set; }
-        public Job Job { get; set; }
+        public Job? Job { get; set; }
     }
 }

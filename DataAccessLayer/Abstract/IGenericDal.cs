@@ -11,9 +11,13 @@ namespace DataAccessLayer.Abstract
     //T bir entity, T class a ait özellikleri üzerine alabilmeli ve bir class olmalı
     public interface IGenericDal<T> where T : class
     {
+        //Ekleme İşlemi
         void Insert(T t);
+        //Silme İşlemi
         void Delete(T t);
+        //Güncelleme İşlemi
         void Update(T t);
+        //Verilerin tümünün getirilmesi
         List<T> GetList();
         //ID ye göre değer getirmesi için
         T GetByID(int id);

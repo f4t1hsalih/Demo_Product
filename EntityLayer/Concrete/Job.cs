@@ -12,6 +12,6 @@ namespace EntityLayer.Concrete
         public string? Name { get; set; }
 
         //İlişki kurmak için gerekli olan kodlar
-        public List<Customer> Customers { get; set; }
+        public List<Customer>? Customers { get; set; }
     }
 }
