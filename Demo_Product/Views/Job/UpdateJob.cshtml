@@ -9,9 +9,11 @@
 <form method="post">
     @Html.Label("Ürün ID:")
     @Html.TextBoxFor(x => x.JobID, new { @class = "form-control", @readonly = "readonly" })
+    @Html.ValidationMessageFor(x => x.JobID)
     <br />
     @Html.Label("Ürün Adı:")
     @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Name)
     <br />
     <button class="btn btn-info"> Meslek Güncelle</button>
 </form>
