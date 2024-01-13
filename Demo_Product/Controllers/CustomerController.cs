@@ -4,6 +4,7 @@ using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Demo_Product.Controllers
 {
@@ -19,6 +20,15 @@ namespace Demo_Product.Controllers
         [HttpGet]
         public IActionResult AddCustomer()
         {
+            //Dropdownlist i kullanabilmek için dropdownlist e gelmesi gereken değerler atanıyor
+            JobManager jobManager = new JobManager(new EfJobDal());
+            List<SelectListItem> values = (from x in jobManager.TGetList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.Name,
+                                               Value = x.JobID.ToString()
+                                           }).ToList();
+            ViewBag.v = values;
             return View();
         }
         [HttpPost]
