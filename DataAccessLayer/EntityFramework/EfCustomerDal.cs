@@ -13,6 +13,7 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfCustomerDal : GenericRepository<Customer>, ICustomerDal
     {
+        //Interface ile tanımlanan metodun içini doldurduk
         public List<Customer> GetCustomerListWithJob()
         {
             using (var c = new Context())
