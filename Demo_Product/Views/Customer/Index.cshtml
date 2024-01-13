@@ -11,6 +11,7 @@
         <th>#</th>
         <th>Müşteri Adı:</th>
         <th>Müşteri Şehri:</th>
+        <th>Müşteri Mesleği:</th>
         <th>Güncelle</th>
         <th>Sil</th>
     </tr>
@@ -20,6 +21,7 @@
             <td>@item.ID</td>
             <td>@item.Name</td>
             <td>@item.City</td>
+            <td>@item.Job.Name</td>
             <td><a href="/Customer/UpdateCustomer/@item.ID" class="btn btn-success">Güncelle</a></td>
             <td><a href="/Customer/DeleteCustomer/@item.ID" class="btn btn-danger">Sil</a></td>
         </tr>
