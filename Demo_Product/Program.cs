@@ -1,6 +1,12 @@
+using DataAccessLayer.Concrete;
+using EntityLayer.Concrete;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+//Bu 2 satýr appuser ve app role ü identitydbcontext ile dahil ettiðimiz için kullanmamýz gereken kod parçalarý
+builder.Services.AddDbContext<Context>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
