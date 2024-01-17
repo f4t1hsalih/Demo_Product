@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Demo_Product.Models.UserRegisterViewModel
+@{
     Layout = null;
 }
 
@@ -30,34 +31,40 @@
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" name="Name" id="inputFirstName" type="text" placeholder="pleace enter a name" />
                                                     <label for="inputFirstName">İsim</label>
+                                                    <span asp-validation-for="Name"></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating">
                                                     <input class="form-control" name="Surname" id="inputLastName" type="text" placeholder="pleace enter a surname"/>
                                                     <label for="inputLastName">Soyisim</label>
+                                                    <span asp-validation-for="Surname"></span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <input class="form-control" name="UserName" id="inputUserName" type="text" placeholder="pleace enter a username" />
                                             <label for="inputUserName">Kullanıcı Adı</label>
+                                            <span asp-validation-for="UserName"></span>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <input class="form-control" name="Mail" id="inputEmail" type="email" placeholder="pleace enter a email" />
                                             <label for="inputEmail">Email Adresi</label>
+                                            <span asp-validation-for="Mail"></span>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" name="Password" id="inputPassword" type="password" placeholder="pleace enter a password" />
                                                     <label for="inputPassword">Şifre</label>
+                                                    <span asp-validation-for="Password"></span>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-floating mb-3 mb-md-0">
                                                     <input class="form-control" name="ConfirmPassword" id="inputPasswordConfirm" type="password" placeholder="pleace enter a confirm password" />
                                                     <label for="inputPasswordConfirm">Şifre Tekrar</label>
+                                                    <span asp-validation-for="ConfirmPassword"></span>
                                                 </div>
                                             </div>
                                         </div>
