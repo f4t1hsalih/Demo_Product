@@ -11,7 +11,7 @@ namespace DataAccessLayer.Concrete
 {
     //DbContext yerine IdentityDbContext den miras almaya gittik
     //çünkü bu sınıf bize gerekli olan bazı tabloları igration da otomatik olarak tanımlamamızı sağlıyor
-    public class Context : IdentityDbContext
+    public class Context : IdentityDbContext<AppUser, AppRole, int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
