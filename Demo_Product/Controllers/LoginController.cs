@@ -1,10 +1,13 @@
 ﻿using Demo_Product.Models;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Demo_Product.Controllers
 {
+    //Geçerli tüm şartlardan muaf kılmaya yarar (allowanonymous)
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         private readonly SignInManager<AppUser> _signInManager;
@@ -35,12 +38,19 @@ namespace Demo_Product.Controllers
                 {
                     return RedirectToAction("Index", "Product");
                 }
-                else 
+                else
                 {
                     ModelState.AddModelError("", "Hatalı Kullanıcı Adı veya Şifre");
                 }
             }
             return View();
+        }
+
+        //Çıkış İşlemi için kullanılan kod
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Login");
         }
     }
 }

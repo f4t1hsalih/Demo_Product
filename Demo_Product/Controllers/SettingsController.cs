@@ -39,7 +39,7 @@ namespace Demo_Product.Controllers
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Product");
+                return RedirectToAction("Index", "Login");
             }
             else
             {
