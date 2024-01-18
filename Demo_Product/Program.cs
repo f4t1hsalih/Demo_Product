@@ -1,6 +1,9 @@
 using DataAccessLayer.Concrete;
 using Demo_Product.Models;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +12,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<Context>();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<CustomIdentityValidator>();
 builder.Services.AddControllersWithViews();
+
+//Diðer tüm sayfalara ulaþmak için authontication gerekecek
+//Yani herhangi bir sayfaya ulaþmak için ilk olarak giriþ yapmak gerekecek
+builder.Services.AddMvc(config =>
+{
+    var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
+});
 
 var app = builder.Build();
 
@@ -22,7 +33,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseAuthentication();
 app.UseRouting();
 
 app.UseAuthorization();
